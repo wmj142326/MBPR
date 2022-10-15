@@ -4,10 +4,13 @@
 
 # 1.Shoulders Of Giants：
 
-[SMPL](https://smpl.is.tue.mpg.de/)：一种参数化的人体模型
-	    [SPIN](https://www.seas.upenn.edu/~nkolot/projects/spin/)：三维人体重建方法
-    	[human_model_viewer](https://github.com/Lemon-XQ/human_model_viewer)：SMPL参数的调整可视化
-    	[SMPL_Tools](https://github.com/wmj142326/SMPL_Tools)：这是在[human_model_viewer](https://github.com/Lemon-XQ/human_model_viewer)的基础上，我们开发的一款针对[SMPL](https://smpl.is.tue.mpg.de/)的标注工具
+[SMPL](https://smpl.is.tue.mpg.de/)：一种参数化人体模型
+
+[SPIN](https://www.seas.upenn.edu/~nkolot/projects/spin/)：三维人体重建方法
+
+[human_model_viewer](https://github.com/Lemon-XQ/human_model_viewer)：SMPL参数的调整可视化 
+
+[SMPL_Tools](https://github.com/wmj142326/SMPL_Tools)：这是在[human_model_viewer](https://github.com/Lemon-XQ/human_model_viewer)的基础上，我们开发的一款针对[SMPL](https://smpl.is.tue.mpg.de/)的标注工具
 
 # 2.Pipline
 
@@ -17,7 +20,7 @@
 
 0. 下载：`git clone https://github.com/wmj142326/MBPR-Multi_Body_Pose_Reconstruction.git `
 
-1. 按照[SPIN/README.md](https://github.com/wmj142326/MBPR-Multi_Body_Pose_Reconstruction/tree/master/SPIN#readme)中的教程配置环境；
+1. 按照[SPIN/README.md](https://github.com/wmj142326/MBPR/tree/master/SPIN#readme)中的教程配置环境；
 
 2. 运行`estimation.py`, 在
 
