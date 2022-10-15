@@ -1,15 +1,13 @@
-<<<<<<< HEAD
-# MBPR-Multi_Body_Pose_Reconstruction
-=======
 # MBPR: Multi_Body_Pose_Reconstruction
 
 **Paper**：Real-time simulation reconstruction of pedestrian emergency posture in collision accident from monocular images
 
 # 1.Shoulders Of Giants：
+
 [SMPL](https://smpl.is.tue.mpg.de/)：一种参数化的人体模型
-		[SPIN](https://www.seas.upenn.edu/~nkolot/projects/spin/)：三维人体重建方法
-		[human_model_viewer](https://github.com/Lemon-XQ/human_model_viewer)：SMPL参数的调整可视化
-		[SMPL_Tools](https://github.com/wmj142326/SMPL_Tools)：这是在[human_model_viewer](https://github.com/Lemon-XQ/human_model_viewer)的基础上，我们开发的一款针对SMPL的标注工具
+	    [SPIN](https://www.seas.upenn.edu/~nkolot/projects/spin/)：三维人体重建方法
+    	[human_model_viewer](https://github.com/Lemon-XQ/human_model_viewer)：SMPL参数的调整可视化
+    	[SMPL_Tools](https://github.com/wmj142326/SMPL_Tools)：这是在[human_model_viewer](https://github.com/Lemon-XQ/human_model_viewer)的基础上，我们开发的一款针对[SMPL](https://smpl.is.tue.mpg.de/)的标注工具
 
 # 2.Pipline
 
@@ -52,4 +50,3 @@
    ```python
 python ped_pkl2ini.py
    ```
->>>>>>> add project
