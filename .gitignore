@@ -1,0 +1,6 @@
+.idea/
+neural_renderer
+SPIN/data
+SPIN/__pycache__/
+SPIN/nuscenes_pedestrain_estimation.py
+*.mp4

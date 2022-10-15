@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?><!DOCTYPE MADYMO  SYSTEM 'mtd_3d.dtd'><MADYMO RELEASE="R7.5">
+   <TYPEDEFS>
+      <INCLUDE FILE="typedefs.xml"/>
+   </TYPEDEFS>
+   <RUNID>
+      <PRODUCT_INFORMATION DATE="$Date: 2013/05/28 07:51:48 $" DESCRIPTION="MADYMO average male human pedestrian model. This model is the average male model validated as described in STAPP paper 03S-60: 'Improving Pedestrian Safety Using Numerical Human Models'." FILE="h_ped50el_usr.xml (user file)" STATE="$State: R75 $" VERSION="5.0">
+         <COPYRIGHT>
+<![CDATA[
+Developed by TNO
+
+(c) 2013 TNO
+    P.O. Box 6033, 2600 JA Delft, The Netherlands
+
+All rights reserved
+
+This MADYMO model is confidential information and a proprietary
+product of TNO, Delft, The Netherlands.
+The terms and conditions governing this model consist solely
+of those set forth in the written contracts between TNO or
+TNO authorized third parties and its customers.
+This model may only be used or copied in accordance with the
+terms of these contracts.
+
+
+
+Developed by TASS BV
+
+(c) 2013 TASS BV
+    P.O. Box 1121, 2280 CC Rijswijk, The Netherlands
+
+All rights reserved
+
+MADYMO software suite is confidential information and a proprietary
+product of TASS BV, Rijswijk, The Netherlands.
+The terms and conditions governing the licensing of MADYMO software
+consist solely of those set forth in the written contracts between TASS BV or
+TASS BV authorized third parties and its customers.
+The software may only be used or copied in
+accordance with the terms of these contracts.
+]]>
+         </COPYRIGHT>
+      </PRODUCT_INFORMATION>
+   </RUNID>
+   <CONTROL_ALLOCATION C_SIZE="100000" I_SIZE="1000000" NR_PROC="1" REPEATABILITY="ON" R_SIZE="2000000"/>
+   <CONTROL_ANALYSIS.TIME ANALYSIS_TYPE="DYNAMIC" CONSTRAINT_TOL="1.000000E-09" INT_MTH="EULER" RACO="0.01 0.1" RAMP="0.0 0.5" TIME_END="0.0" TIME_START="0.0" TIME_STEP="1.00E-05">
+      <DEFINE REDEFINE="WARNING" VALUE="430" VAR_NAME="LegUpFractTorqueLatPos"/>
+      <DEFINE REDEFINE="WARNING" VALUE="-430" VAR_NAME="LegUpFractTorqueLatNeg"/>
+      <DEFINE REDEFINE="WARNING" VALUE="285" VAR_NAME="LegLowFractTorqueLatPos"/>
+      <DEFINE REDEFINE="WARNING" VALUE="-285" VAR_NAME="LegLowFractTorqueLatNeg"/>
+      <DEFINE REDEFINE="WARNING" VALUE="6000" VAR_NAME="LegUpFractForceLatPos"/>
+      <DEFINE REDEFINE="WARNING" VALUE="-6000" VAR_NAME="LegUpFractForceLatNeg"/>
+      <DEFINE REDEFINE="WARNING" VALUE="4000" VAR_NAME="LegLowFractForceLatPos"/>
+      <DEFINE REDEFINE="WARNING" VALUE="-4000" VAR_NAME="LegLowFractForceLatNeg"/>
+   </CONTROL_ANALYSIS.TIME>
+   <CONTROL_OUTPUT FILTER_IGNORE="OFF" PADDING_TIME="0.01" TIME_STEP="1.0E-4" TIME_STEP_ANI="1.0E-3" WRITE_DEBUG="NONE">
+      <TIME_HISTORY_MB BODY_OUTPUT_LIST="HeadCG_lvl HeadCG_lac Sternum_lac TorsoUp_lac TorsoLow_lac LegUp2L_lac LegUp2R_lac LegLow3L_lac LegLow3R_lac" BODY_REL_OUTPUT_LIST="Sternum_dvl" DESCRIPTION="Output signals 50th percentile Pedestrian Human Male model" JOINT_CONSTRAINT_OUTPUT_LIST="TorsoLow-LumbarLow_Force TorsoLow-LumbarLow_Torque NeckLow_Force NeckLow_Torque NeckUp_Force NeckUp_Torque LegUp3L_Force LegUp3L_Torque LegUp3R_Force LegUp3R_Torque LegLow2L_Force LegLow2L_Torque          LegLow2R_Force LegLow2R_Torque LegLow3L_Force LegLow3L_Torque LegLow3R_Force LegLow3R_Torque LegLow4L_Force LegLow4L_Torque LegLow4R_Force LegLow4R_Torque" RESTRAINT_OUTPUT_LIST="HipL HipR KneeL KneeR AnkleL AnkleR" SENSOR_OUTPUT_LIST="LegUp3L_TorqueLat LegUp3R_TorqueLat LegLow2L_TorqueLat LegLow2R_TorqueLat LegLow3L_TorqueLat LegLow3R_TorqueLat LegLow4L_TorqueLat LegLow4R_TorqueLat LegUp3L_ForceLat LegUp3R_ForceLat LegLow2L_ForceLat          LegLow2R_ForceLat LegLow3L_ForceLat LegLow3R_ForceLat LegLow4L_ForceLat LegLow4R_ForceLat" SYSTEM="PedHumanMale50%"/>
+      <ANIMATION EXTENDED="ON"/>
+      <TIME_HISTORY_INJURY INJURY_LIST="ALL"/>
+      <TIME_DURATION_INJURY INJURY_LIST="ALL"/>
+   </CONTROL_OUTPUT>
+   <SYSTEM.REF_SPACE ID="1" NAME="INERTIAL_SPACE"/>
+   <SYSTEM.MODEL ID="2" NAME="PedHumanMale50%">
+      <INCLUDE FILE="h_ped50el_inc.xml"/>
+      <CRDSYS_OBJECT.MB ID="1" NAME="Human_Attachment" ORIENT="Human_Attachment_ori" POS="0.0 0.0 0.0"/>
+      <ORIENTATION.SUCCESSIVE_ROT AXIS_1="X" AXIS_2="Y" AXIS_3="Z" ID="1500" NAME="Human_Attachment_ori" R1="0.0" R2="0.0" R3="0.0"/>
+      <INITIAL.JOINT_POS D1="0" D2="0" D3="0" JOINT="Human_jnt" R1="0" R2="0" R3="0"/>
+      <INITIAL.JOINT_POS JOINT="LumbarLow-LumbarUp_jnt" R1="0.13905446" R2="0.24195139" R3="0.02403127"/>
+      <INITIAL.JOINT_POS D1="0" D2="0" D3="0" JOINT="LumbarUp-TorsoUp_jnt" R1="0.08098903" R2="-0.03340912" R3="0.05988969"/>
+      <INITIAL.JOINT_POS JOINT="TorsoUp-NeckLow_jnt" R1="0"/>
+      <INITIAL.JOINT_POS D1="0" D2="0" D3="0" JOINT="NeckLow-NeckUp_jnt" R1="0.07624155" R2="-0.5988476199999999" R3="-0.2162019"/>
+      <INITIAL.JOINT_POS D1="0" D2="0" D3="0" JOINT="NeckUp-Head_jnt" R1="0.06487613" R2="-0.03021949" R3="-0.34737092"/>
+      <INITIAL.JOINT_POS JOINT="ShoulderL_jnt" R1="-0.13547252" R2="1.32482735"/>
+      <INITIAL.JOINT_POS JOINT="ShoulderR_jnt" R1="-0.07450325" R2="-1.0721483600000001"/>
+      <INITIAL.JOINT_POS JOINT="ElbowL_jnt" R1="0.1046594" R2="-1.32748592"/>
+      <INITIAL.JOINT_POS JOINT="ElbowR_jnt" R1="-0.02518974" R2="-1.14140582"/>
+      <INITIAL.JOINT_POS JOINT="WristL_jnt" R1="-0.09221654" R2="0.16907395"/>
+      <INITIAL.JOINT_POS JOINT="WristR_jnt" R1="-0.07180343" R2="-0.1392296"/>
+      <INITIAL.JOINT_POS JOINT="HipL_jnt" R1="0.35747486" R2="-0.8928408" R3="-0.06882007"/>
+      <INITIAL.JOINT_POS JOINT="HipR_jnt" R1="-0.52637815" R2="-0.13273473" R3="-0.15463249"/>
+      <INITIAL.JOINT_POS D1="0" D2="0" D3="0" JOINT="KneeL_jnt" R1="-0.11413724" R2="1.06221104" R3="-0.06680751"/>
+      <INITIAL.JOINT_POS D1="0" D2="0" D3="0" JOINT="KneeR_jnt" R1="0.03803872" R2="0.55224371" R3="0.3029843"/>
+      <INITIAL.JOINT_POS JOINT="AnkleL_jnt" R1="0.12473943" R2="-0.23660567" R3="-0.18247101"/>
+      <INITIAL.JOINT_POS JOINT="AnkleR_jnt" R1="-0.11051305" R2="0.2823264" R3="-0.01927439"/>
+      <ORIENTATION.SUCCESSIVE_ROT AXIS_1="X" AXIS_2="Y" AXIS_3="Z" ID="120" NAME="Human_ori" R1="0.0" R2="0.0" R3="0.0"/>
+      <ORIENTATION.SUCCESSIVE_ROT AXIS_1="X" AXIS_2="Y" AXIS_3="Z" ID="121" NAME="LumbarLow-LumbarUp_ori" R1="0.0" R2="0.0" R3="0.0"/>
+      <ORIENTATION.SUCCESSIVE_ROT AXIS_1="X" AXIS_2="Y" AXIS_3="Z" ID="122" NAME="LumbarUp-TorsoUp_ori" R1="0.0" R2="0.0" R3="0.0"/>
+      <ORIENTATION.SUCCESSIVE_ROT AXIS_1="X" AXIS_2="Y" AXIS_3="Z" ID="123" NAME="NeckLow-NeckUp_ori" R1="0.0" R2="0.0" R3="0.0"/>
+      <ORIENTATION.SUCCESSIVE_ROT AXIS_1="X" AXIS_2="Y" AXIS_3="Z" ID="124" NAME="NeckUp-Head_ori" R1="0.0" R2="0.0" R3="0.0"/>
+      <ORIENTATION.SUCCESSIVE_ROT AXIS_1="X" AXIS_2="Y" AXIS_3="Z" ID="125" NAME="HipL_ori" R1="0.0" R2="0.0" R3="0.0"/>
+      <ORIENTATION.SUCCESSIVE_ROT AXIS_1="X" AXIS_2="Y" AXIS_3="Z" ID="126" NAME="HipR_ori" R1="0.0" R2="0.0" R3="0.0"/>
+      <ORIENTATION.SUCCESSIVE_ROT AXIS_1="X" AXIS_2="Y" AXIS_3="Z" ID="127" NAME="KneeL_ori" R1="0.0" R2="0.0" R3="0.0"/>
+      <ORIENTATION.SUCCESSIVE_ROT AXIS_1="X" AXIS_2="Y" AXIS_3="Z" ID="128" NAME="KneeR_ori" R1="0.0" R2="0.0" R3="0.0"/>
+      <ORIENTATION.SUCCESSIVE_ROT AXIS_1="X" AXIS_2="Y" AXIS_3="Z" ID="129" NAME="AnkleL_ori" R1="1.88" R2="0.0" R3="0.0"/>
+      <ORIENTATION.SUCCESSIVE_ROT AXIS_1="X" AXIS_2="Y" AXIS_3="Z" ID="130" NAME="AnkleR_ori" R1="0.0" R2="0.0" R3="0.0"/>
+      <STATE.JOINT JOINT_LIST="LegUp3LCL_jnt" STIF_ROT="1.00" SWITCH="1"/>
+      <STATE.JOINT JOINT_LIST="LegUp3LCR_jnt" STIF_ROT="1.00" SWITCH="2"/>
+      <STATE.JOINT JOINT_LIST="LegLow2LCL_jnt" STIF_ROT="1.00" SWITCH="3"/>
+      <STATE.JOINT JOINT_LIST="LegLow2LCR_jnt" STIF_ROT="1.00" SWITCH="4"/>
+      <STATE.JOINT JOINT_LIST="LegLow3LCL_jnt" STIF_ROT="1.00" SWITCH="5"/>
+      <STATE.JOINT JOINT_LIST="LegLow3LCR_jnt" STIF_ROT="1.00" SWITCH="6"/>
+      <STATE.JOINT JOINT_LIST="LegLow4LCL_jnt" STIF_ROT="1.00" SWITCH="7"/>
+      <STATE.JOINT JOINT_LIST="LegLow4LCR_jnt" STIF_ROT="1.00" SWITCH="8"/>
+   </SYSTEM.MODEL>
+</MADYMO>

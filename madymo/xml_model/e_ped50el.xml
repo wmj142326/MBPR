@@ -1,0 +1,971 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE MADYMO SYSTEM "mtd_3d.dtd">
+<MADYMO
+   RELEASE="R7.5"
+   >
+   <TYPEDEFS>
+      <INCLUDE
+         FILE="typedefs.xml"
+      />
+   </TYPEDEFS>
+   <RUNID>
+      <PRODUCT_INFORMATION
+         DESCRIPTION="Example: Lateral impact test with 50th percentile human male pedestrian model at 32 km/h"
+         FILE="e_ped50el.xml (example file)"
+         VERSION="1.3"
+         DATE="$Date: 2013/05/28 07:55:44 $"
+         STATE="$State: R75 $"
+         >
+         <COPYRIGHT>
+<![CDATA[
+Developed by TNO
+
+(c) 2013 TNO
+    P.O. Box 6033, 2600 JA Delft, The Netherlands
+
+All rights reserved
+
+This MADYMO model is confidential information and a proprietary
+product of TNO, Delft, The Netherlands.
+The terms and conditions governing this model consist solely
+of those set forth in the written contracts between TNO or
+TNO authorized third parties and its customers.
+This model may only be used or copied in accordance with the
+terms of these contracts.
+
+
+
+Developed by TASS BV
+
+(c) 2013 TASS BV
+    P.O. Box 1121, 2280 CC Rijswijk, The Netherlands
+
+All rights reserved
+
+MADYMO software suite is confidential information and a proprietary
+product of TASS BV, Rijswijk, The Netherlands.
+The terms and conditions governing the licensing of MADYMO software
+consist solely of those set forth in the written contracts between TASS BV or
+TASS BV authorized third parties and its customers.
+The software may only be used or copied in
+accordance with the terms of these contracts.
+]]>
+         </COPYRIGHT>
+      </PRODUCT_INFORMATION>
+   </RUNID>
+   <CONTROL_ALLOCATION
+      NR_PROC="1"
+      I_SIZE="1000000"
+      R_SIZE="2000000"
+      C_SIZE="100000"
+      REPEATABILITY="ON"
+   />
+   <CONTROL_ANALYSIS.TIME
+      TIME_START="0.0"
+      TIME_END="0.800"
+      TIME_STEP="1.00E-05"
+      INT_MTH="EULER"
+      CONSTRAINT_TOL="1.000000E-09"
+      RAMP="0.0 0.5"
+      RACO="0.01 0.1"
+      >
+      <DEFINE
+         VAR_NAME="LegUpFractTorqueLatPos"
+         VALUE="430"
+         REDEFINE="WARNING"
+      />
+      <DEFINE
+         VAR_NAME="LegUpFractTorqueLatNeg"
+         VALUE="-430"
+         REDEFINE="WARNING"
+      />
+      <DEFINE
+         VAR_NAME="LegLowFractTorqueLatPos"
+         VALUE="285"
+         REDEFINE="WARNING"
+      />
+      <DEFINE
+         VAR_NAME="LegLowFractTorqueLatNeg"
+         VALUE="-285"
+         REDEFINE="WARNING"
+      />
+      <DEFINE
+         VAR_NAME="LegUpFractForceLatPos"
+         VALUE="6000"
+         REDEFINE="WARNING"
+      />
+      <DEFINE
+         VAR_NAME="LegUpFractForceLatNeg"
+         VALUE="-6000"
+         REDEFINE="WARNING"
+      />
+      <DEFINE
+         VAR_NAME="LegLowFractForceLatPos"
+         VALUE="4000"
+         REDEFINE="WARNING"
+      />
+      <DEFINE
+         VAR_NAME="LegLowFractForceLatNeg"
+         VALUE="-4000"
+         REDEFINE="WARNING"
+      />
+   </CONTROL_ANALYSIS.TIME>
+   <CONTROL_OUTPUT
+      FILTER_IGNORE="OFF"
+      PADDING_TIME="0.01"
+      TIME_STEP="1.0E-4"
+      TIME_STEP_ANI="2.0E-3"
+      WRITE_DEBUG="NONE"
+      >
+      <TIME_HISTORY_MB
+         BODY_OUTPUT_LIST="ALL"
+         BODY_REL_OUTPUT_LIST="ALL"
+         JOINT_CONSTRAINT_OUTPUT_LIST="ALL"
+         JOINT_DOF_OUTPUT_LIST="ALL"
+         RESTRAINT_OUTPUT_LIST="ALL"
+      />
+      <ANIMATION
+         EXTENDED="ON"
+      />
+      <TIME_HISTORY_INJURY
+         INJURY_LIST="ALL"
+      />
+      <TIME_DURATION_INJURY
+         INJURY_LIST="ALL"
+      />
+   </CONTROL_OUTPUT>
+   <SYSTEM.REF_SPACE
+      ID="1"
+      NAME="Ground"
+      >
+      <SURFACE.PLANE
+         ID="1"
+         NAME="Ground_pln"
+         CHAR="pla_char_1"
+         POINT_1="-2.0 -0.75 -0.227"
+         POINT_2="3.0 -0.75 -0.227"
+         POINT_3="3.0 0.75 -0.227"
+      />
+      <CHARACTERISTIC.CONTACT
+         ID="1"
+         NAME="pla_char_1"
+         CONTACT_MODEL="FORCE"
+         LOAD_FUNC="fid_1"
+         HYS_MODEL="1"
+         HYS_SLOPE="2.000000E+06"
+         ELAS_LIMIT="0.0"
+      />
+      <FUNCTION.XY
+         ID="1"
+         NAME="fid_1"
+         >
+         <TABLE
+            TYPE="XY_PAIR"
+            >
+<![CDATA[
+|      XI             YI      |
+          0.00000000E+00 0.00000000E+00
+          3.50000000E-02 1.00000000E+04
+]]>
+         </TABLE>
+      </FUNCTION.XY>
+   </SYSTEM.REF_SPACE>
+   <SYSTEM.MODEL
+      ID="2"
+      NAME="PedHumanMale95"
+      >
+      <INCLUDE
+         FILE="h_ped95el_inc.xml"
+      />
+      <CRDSYS_OBJECT.MB
+         ID="1"
+         NAME="Human_Attachment"
+         ORIENT="Human_Attachment_ori"
+         POS="0.0 0.0 0.0"
+      />
+      <ORIENTATION.SUCCESSIVE_ROT
+         AXIS_1="X"
+         AXIS_2="Y"
+         AXIS_3="Z"
+         ID="1500"
+         NAME="Human_Attachment_ori"
+         R1="0.0"
+         R2="0.0"
+         R3="0.0"
+      />
+      <INITIAL.JOINT_POS
+         D1="0.84"
+         D2="0.1"
+         D3="0.8"
+         JOINT="Human_jnt"
+         R1="0"
+         R2="0"
+         R3="1.135"
+      />
+      <INITIAL.JOINT_POS
+         JOINT="LumbarLow-LumbarUp_jnt"
+         R1="-0.02611931"
+         R2="0.33212373"
+         R3="-0.00612176"
+      />
+      <INITIAL.JOINT_POS
+         D1="0"
+         D2="0"
+         D3="0"
+         JOINT="LumbarUp-TorsoUp_jnt"
+         R1="-0.00175861"
+         R2="0.03842537"
+         R3="-0.0190546"
+      />
+      <INITIAL.JOINT_POS
+         JOINT="TorsoUp-NeckLow_jnt"
+         R1="0"
+      />
+      <INITIAL.JOINT_POS
+         D1="0"
+         D2="0"
+         D3="0"
+         JOINT="NeckLow-NeckUp_jnt"
+         R1="0.01369835"
+         R2="-0.43439319"
+         R3="-0.12608001"
+      />
+      <INITIAL.JOINT_POS
+         D1="0"
+         D2="0"
+         D3="0"
+         JOINT="NeckUp-Head_jnt"
+         R1="0.05543264"
+         R2="0.15638116"
+         R3="-0.13151586"
+      />
+      <INITIAL.JOINT_POS
+         JOINT="ShoulderL_jnt"
+         R1="0.18262962"
+         R2="0.5552022099999999"
+      />
+      <INITIAL.JOINT_POS
+         JOINT="ShoulderR_jnt"
+         R1="0.18475825"
+         R2="-0.6108198399999999"
+      />
+      <INITIAL.JOINT_POS
+         JOINT="ElbowL_jnt"
+         R1="-0.25500572"
+         R2="-1.0243175"
+      />
+      <INITIAL.JOINT_POS
+         JOINT="ElbowR_jnt"
+         R1="0.14789346"
+         R2="-0.99540949"
+      />
+      <INITIAL.JOINT_POS
+         JOINT="WristL_jnt"
+         R1="0.01899646"
+         R2="0.11751031"
+      />
+      <INITIAL.JOINT_POS
+         JOINT="WristR_jnt"
+         R1="0.07051446"
+         R2="-0.13038652"
+      />
+      <INITIAL.JOINT_POS
+         JOINT="HipL_jnt"
+         R1="0.09841214"
+         R2="-0.21925843"
+         R3="0.01119911"
+      />
+      <INITIAL.JOINT_POS
+         JOINT="HipR_jnt"
+         R1="-0.06951274"
+         R2="-0.40790689"
+         R3="-0.02982126"
+      />
+      <INITIAL.JOINT_POS
+         D1="0"
+         D2="0"
+         D3="0"
+         JOINT="KneeL_jnt"
+         R1="-0.1320916"
+         R2="0.87840617"
+         R3="-0.04296412"
+      />
+      <INITIAL.JOINT_POS
+         D1="0"
+         D2="0"
+         D3="0"
+         JOINT="KneeR_jnt"
+         R1="0.09318432"
+         R2="0.37211248"
+         R3="-0.0455006"
+      />
+      <INITIAL.JOINT_POS
+         JOINT="AnkleL_jnt"
+         R1="0.09359093"
+         R2="-0.054286"
+         R3="-0.06498629"
+      />
+      <INITIAL.JOINT_POS
+         JOINT="AnkleR_jnt"
+         R1="-0.14058138"
+         R2="0.15611497"
+         R3="0.01885109"
+      />
+      <ORIENTATION.SUCCESSIVE_ROT
+         AXIS_1="X"
+         AXIS_2="Y"
+         AXIS_3="Z"
+         ID="120"
+         NAME="Human_ori"
+         R1="0.0"
+         R2="0.0"
+         R3="0.0"
+      />
+      <ORIENTATION.SUCCESSIVE_ROT
+         AXIS_1="X"
+         AXIS_2="Y"
+         AXIS_3="Z"
+         ID="121"
+         NAME="LumbarLow-LumbarUp_ori"
+         R1="0.0"
+         R2="0.0"
+         R3="0.0"
+      />
+      <ORIENTATION.SUCCESSIVE_ROT
+         AXIS_1="X"
+         AXIS_2="Y"
+         AXIS_3="Z"
+         ID="122"
+         NAME="LumbarUp-TorsoUp_ori"
+         R1="0.0"
+         R2="0.0"
+         R3="0.0"
+      />
+      <ORIENTATION.SUCCESSIVE_ROT
+         AXIS_1="X"
+         AXIS_2="Y"
+         AXIS_3="Z"
+         ID="123"
+         NAME="NeckLow-NeckUp_ori"
+         R1="0.0"
+         R2="0.0"
+         R3="0.0"
+      />
+      <ORIENTATION.SUCCESSIVE_ROT
+         AXIS_1="X"
+         AXIS_2="Y"
+         AXIS_3="Z"
+         ID="124"
+         NAME="NeckUp-Head_ori"
+         R1="0.0"
+         R2="0.0"
+         R3="0.0"
+      />
+      <ORIENTATION.SUCCESSIVE_ROT
+         AXIS_1="X"
+         AXIS_2="Y"
+         AXIS_3="Z"
+         ID="125"
+         NAME="HipL_ori"
+         R1="0.0"
+         R2="0.0"
+         R3="0.0"
+      />
+      <ORIENTATION.SUCCESSIVE_ROT
+         AXIS_1="X"
+         AXIS_2="Y"
+         AXIS_3="Z"
+         ID="126"
+         NAME="HipR_ori"
+         R1="0.0"
+         R2="0.0"
+         R3="0.0"
+      />
+      <ORIENTATION.SUCCESSIVE_ROT
+         AXIS_1="X"
+         AXIS_2="Y"
+         AXIS_3="Z"
+         ID="127"
+         NAME="KneeL_ori"
+         R1="0.0"
+         R2="0.0"
+         R3="0.0"
+      />
+      <ORIENTATION.SUCCESSIVE_ROT
+         AXIS_1="X"
+         AXIS_2="Y"
+         AXIS_3="Z"
+         ID="128"
+         NAME="KneeR_ori"
+         R1="0.0"
+         R2="0.0"
+         R3="0.0"
+      />
+      <ORIENTATION.SUCCESSIVE_ROT
+         AXIS_1="X"
+         AXIS_2="Y"
+         AXIS_3="Z"
+         ID="129"
+         NAME="AnkleL_ori"
+         R1="0.0"
+         R2="0.0"
+         R3="0.0"
+      />
+      <ORIENTATION.SUCCESSIVE_ROT
+         AXIS_1="X"
+         AXIS_2="Y"
+         AXIS_3="Z"
+         ID="130"
+         NAME="AnkleR_ori"
+         R1="0.0"
+         R2="0.0"
+         R3="0.0"
+      />
+      <STATE.JOINT
+         JOINT_LIST="LegUp3LCL_jnt"
+         STIF_ROT="1.00"
+         SWITCH="1"
+      />
+      <STATE.JOINT
+         JOINT_LIST="LegUp3LCR_jnt"
+         STIF_ROT="1.00"
+         SWITCH="2"
+      />
+      <STATE.JOINT
+         JOINT_LIST="LegLow2LCL_jnt"
+         STIF_ROT="1.00"
+         SWITCH="3"
+      />
+      <STATE.JOINT
+         JOINT_LIST="LegLow2LCR_jnt"
+         STIF_ROT="1.00"
+         SWITCH="4"
+      />
+      <STATE.JOINT
+         JOINT_LIST="LegLow3LCL_jnt"
+         STIF_ROT="1.00"
+         SWITCH="5"
+      />
+      <STATE.JOINT
+         JOINT_LIST="LegLow3LCR_jnt"
+         STIF_ROT="1.00"
+         SWITCH="6"
+      />
+      <STATE.JOINT
+         JOINT_LIST="LegLow4LCL_jnt"
+         STIF_ROT="1.00"
+         SWITCH="7"
+      />
+      <STATE.JOINT
+         JOINT_LIST="LegLow4LCR_jnt"
+         STIF_ROT="1.00"
+         SWITCH="8"
+      />
+   </SYSTEM.MODEL>
+   <SYSTEM.MODEL
+      ID="3"
+      NAME="Car"
+      >
+      <BODY.RIGID
+         ID="1"
+         NAME="Car_bod"
+         MASS="700.0"
+         CENTRE_OF_GRAVITY="0.0 0.0 0.0"
+         INERTIA="950.0 950.0 950.0 0.0 0.0 0.0"
+      />
+      <BODY.RIGID
+         ID="2"
+         NAME="Bumper_bod"
+         MASS="10.0"
+         CENTRE_OF_GRAVITY="0.0 0.0 0.0"
+         INERTIA="0.1 0.1 0.1 0.0 0.0 0.0"
+      />
+      <SURFACE.ELLIPSOID
+         ID="1"
+         NAME="Bumper_ell"
+         SEMI_AXIS="0.75 0.2 0.075"
+         DEGREE="2.0"
+         CHAR="ell_char_217"
+         >
+         <CRDSYS_OBJECT_1.MB
+            BODY="Bumper_bod"
+            POS="0.0 0.0 -0.173"
+            ORIENT="ell_ori_65"
+         />
+      </SURFACE.ELLIPSOID>
+      <SURFACE.ELLIPSOID
+         ID="2"
+         NAME="Hood_ell"
+         SEMI_AXIS="0.95 0.66 0.18"
+         DEGREE="2.0"
+         CHAR="ell_char_218"
+         >
+         <CRDSYS_OBJECT_1.MB
+            BODY="Car_bod"
+            POS="0.0 1.15 0.2"
+            ORIENT="ell_ori_66"
+         />
+      </SURFACE.ELLIPSOID>
+      <SURFACE.ELLIPSOID
+         ID="3"
+         NAME="Windscreen_ell"
+         SEMI_AXIS="0.75 0.69 0.075"
+         DEGREE="2.0"
+         CHAR="ell_char_219"
+         >
+         <CRDSYS_OBJECT_1.MB
+            BODY="Car_bod"
+            POS="0.0 0.76 0.51"
+            ORIENT="ell_ori_67"
+         />
+      </SURFACE.ELLIPSOID>
+      <SURFACE.ELLIPSOID
+         ID="4"
+         NAME="HoodEdge_ell"
+         SEMI_AXIS="0.4 0.1 0.1"
+         DEGREE="2.0"
+         CHAR="ell_char_220"
+         >
+         <CRDSYS_OBJECT_1.MB
+            BODY="Car_bod"
+            POS="0.0 1.7 0.1"
+            ORIENT="ell_ori_68"
+         />
+      </SURFACE.ELLIPSOID>
+      <SURFACE.ELLIPSOID
+         ID="5"
+         NAME="Wheel1_ell"
+         SEMI_AXIS="0.06 0.24 0.24"
+         DEGREE="2.0"
+         CHAR="ell_char_221"
+         >
+         <CRDSYS_OBJECT_1.MB
+            BODY="Car_bod"
+            POS="0.7 1.2 -0.272"
+         />
+      </SURFACE.ELLIPSOID>
+      <SURFACE.ELLIPSOID
+         ID="6"
+         NAME="Wheel2_ell"
+         SEMI_AXIS="0.06 0.24 0.24"
+         DEGREE="2.0"
+         CHAR="ell_char_222"
+         >
+         <CRDSYS_OBJECT_1.MB
+            BODY="Car_bod"
+            POS="-0.7 1.2 -0.272"
+         />
+      </SURFACE.ELLIPSOID>
+      <SURFACE.ELLIPSOID
+         ID="7"
+         NAME="Wheel3_ell"
+         SEMI_AXIS="0.06 0.24 0.24"
+         DEGREE="2.0"
+         CHAR="ell_char_223"
+         >
+         <CRDSYS_OBJECT_1.MB
+            BODY="Car_bod"
+            POS="-0.7 -0.2 -0.272"
+         />
+      </SURFACE.ELLIPSOID>
+      <SURFACE.ELLIPSOID
+         ID="8"
+         NAME="Wheel4_ell"
+         SEMI_AXIS="0.06 0.24 0.24"
+         DEGREE="2.0"
+         CHAR="ell_char_224"
+         >
+         <CRDSYS_OBJECT_1.MB
+            BODY="Car_bod"
+            POS="0.7 -0.2 -0.272"
+         />
+      </SURFACE.ELLIPSOID>
+      <ORIENTATION.SUCCESSIVE_ROT
+         ID="2"
+         NAME="ell_ori_65"
+         AXIS_1="X"
+         R1="1.0472"
+      />
+      <ORIENTATION.SUCCESSIVE_ROT
+         ID="3"
+         NAME="ell_ori_66"
+         AXIS_1="X"
+         R1="-0.1664"
+      />
+      <ORIENTATION.SUCCESSIVE_ROT
+         ID="4"
+         NAME="ell_ori_67"
+         AXIS_1="X"
+         R1="-0.6027"
+      />
+      <ORIENTATION.SUCCESSIVE_ROT
+         ID="5"
+         NAME="ell_ori_68"
+         AXIS_1="X"
+         R1="-0.1664"
+      />
+      <CHARACTERISTIC.CONTACT
+         ID="217"
+         NAME="ell_char_217"
+         CONTACT_MODEL="FORCE"
+         LOAD_FUNC="fid_98"
+         HYS_MODEL="1"
+         HYS_SLOPE="1.000000E+07"
+         ELAS_LIMIT="0.0"
+      />
+      <CHARACTERISTIC.CONTACT
+         ID="218"
+         NAME="ell_char_218"
+         CONTACT_MODEL="FORCE"
+         LOAD_FUNC="fid_94"
+         HYS_MODEL="1"
+         HYS_SLOPE="1.000000E+07"
+         ELAS_LIMIT="0.0"
+      />
+      <CHARACTERISTIC.CONTACT
+         ID="219"
+         NAME="ell_char_219"
+         CONTACT_MODEL="FORCE"
+         LOAD_FUNC="fid_95"
+         HYS_MODEL="1"
+         HYS_SLOPE="1.000000E+07"
+         ELAS_LIMIT="0.0"
+      />
+      <CHARACTERISTIC.CONTACT
+         ID="220"
+         NAME="ell_char_220"
+         CONTACT_MODEL="FORCE"
+         LOAD_FUNC="fid_96"
+         HYS_MODEL="1"
+         HYS_SLOPE="1.000000E+07"
+         ELAS_LIMIT="0.0"
+      />
+      <CHARACTERISTIC.CONTACT
+         ID="221"
+         NAME="ell_char_221"
+         CONTACT_MODEL="FORCE"
+         LOAD_FUNC="fid_97"
+         HYS_MODEL="NONE"
+      />
+      <CHARACTERISTIC.CONTACT
+         ID="222"
+         NAME="ell_char_222"
+         CONTACT_MODEL="FORCE"
+         LOAD_FUNC="fid_97"
+         HYS_MODEL="NONE"
+      />
+      <CHARACTERISTIC.CONTACT
+         ID="223"
+         NAME="ell_char_223"
+         CONTACT_MODEL="FORCE"
+         LOAD_FUNC="fid_97"
+         HYS_MODEL="NONE"
+      />
+      <CHARACTERISTIC.CONTACT
+         ID="224"
+         NAME="ell_char_224"
+         CONTACT_MODEL="FORCE"
+         LOAD_FUNC="fid_97"
+         HYS_MODEL="NONE"
+      />
+      <FUNCTION.XY
+         ID="98"
+         NAME="fid_98"
+         >
+         <COMMENT>
+<![CDATA[
+!  5: Bumper Stiffness
+]]>
+         </COMMENT>
+         <TABLE
+            TYPE="XY_PAIR"
+            >
+<![CDATA[
+|      XI             YI      |
+          0.00000000E+00 0.00000000E+00
+          1.20000000E-03 1.50000000E+03
+          5.40000000E-03 2.00000000E+03
+          1.03000000E-02 3.00000000E+03
+          1.61000000E-02 4.00000000E+03
+          2.93000000E-02 6.50000000E+03
+          3.58000000E-02 6.75000000E+03
+          5.50000000E-02 6.95000000E+03
+]]>
+         </TABLE>
+      </FUNCTION.XY>
+      <FUNCTION.XY
+         ID="94"
+         NAME="fid_94"
+         >
+         <COMMENT>
+<![CDATA[
+! Bumper
+           ! Hood
+           ! Windscreen
+           ! Hood-edge
+          !  1:Hood Top Stiffness
+]]>
+         </COMMENT>
+         <TABLE
+            TYPE="XY_PAIR"
+            >
+<![CDATA[
+|      XI             YI      |
+          0.00000000E+00 0.00000000E+00
+          4.00000000E-02 5.00000000E+03
+          7.00000000E-02 1.00000000E+04
+]]>
+         </TABLE>
+      </FUNCTION.XY>
+      <FUNCTION.XY
+         ID="95"
+         NAME="fid_95"
+         >
+         <COMMENT>
+<![CDATA[
+!  2:Windscreen Stiffness
+]]>
+         </COMMENT>
+         <TABLE
+            TYPE="XY_PAIR"
+            >
+<![CDATA[
+|      XI             YI      |
+          0.00000000E+00 0.00000000E+00
+          1.50000000E-02 5.00000000E+03
+          1.00000000E-01 6.00000000E+03
+]]>
+         </TABLE>
+      </FUNCTION.XY>
+      <FUNCTION.XY
+         ID="96"
+         NAME="fid_96"
+         >
+         <COMMENT>
+<![CDATA[
+!  3:Hood-edge
+          ! Hood edge stiffness, 2k-03-26
+]]>
+         </COMMENT>
+         <TABLE
+            TYPE="XY_PAIR"
+            >
+<![CDATA[
+|      XI             YI      |
+          0.00000000E+00 0.00000000E+00
+          1.00000000E-02 5.00000000E+03
+          5.00000000E-02 8.00000000E+03
+          1.00000000E-01 1.00000000E+04
+]]>
+         </TABLE>
+      </FUNCTION.XY>
+      <FUNCTION.XY
+         ID="97"
+         NAME="fid_97"
+         >
+         <COMMENT>
+<![CDATA[
+!  4:Wheel
+]]>
+         </COMMENT>
+         <TABLE
+            TYPE="XY_PAIR"
+            >
+<![CDATA[
+|      XI             YI      |
+          0.00000000E+00 0.00000000E+00
+          1.50000000E-03 4.00000000E+03
+          2.00000000E-03 9.00000000E+03
+]]>
+         </TABLE>
+      </FUNCTION.XY>
+      <JOINT.FREE
+         ID="1"
+         NAME="Car_jnt"
+         >
+         <CRDSYS_OBJECT_1.MB
+            POS="0.0 0.0 0.0"
+         />
+         <CRDSYS_OBJECT_2.MB
+            BODY="Car_bod"
+            POS="0.0 0.0 0.0"
+         />
+      </JOINT.FREE>
+      <JOINT.TRAN
+         ID="2"
+         NAME="Bumper_jnt"
+         >
+         <CRDSYS_OBJECT_1.MB
+            BODY="Car_bod"
+            POS="0.0 1.725 0.0"
+         />
+         <CRDSYS_OBJECT_2.MB
+            BODY="Bumper_bod"
+            POS="0.0 0.0 0.0"
+         />
+      </JOINT.TRAN>
+      <INITIAL.JOINT_POS
+         JOINT="Car_jnt"
+         Q1="1.0003980841"
+         Q2="0.0"
+         Q3="0.0"
+         Q4="-0.9996017573"
+         Q5="-1.3"
+         Q6="0.0"
+         Q7="0.26"
+      />
+      <INITIAL.JOINT_VEL
+         JOINT="Car_jnt"
+         QD4="8.889"
+      />
+      <LOAD.BODY_ACC
+         BODY_LIST="1:2"
+         AZ_FUNC="../PedHumanMale95/fid_1000"
+      />
+   </SYSTEM.MODEL>
+   <GROUP_MB
+      ID="100"
+      NAME="Hood_gmb"
+      SYSTEM="Car"
+      SURFACE_LIST="Hood_ell"
+   />
+   <GROUP_MB
+      ID="101"
+      NAME="Windscreen_gmb"
+      SYSTEM="Car"
+      SURFACE_LIST="Windscreen_ell"
+   />
+   <GROUP_MB
+      ID="102"
+      NAME="HoodEdge_gmb"
+      SYSTEM="Car"
+      SURFACE_LIST="HoodEdge_ell"
+   />
+   <GROUP_MB
+      ID="103"
+      NAME="Bumper_gmb"
+      SYSTEM="Car"
+      SURFACE_LIST="Bumper_ell"
+   />
+   <GROUP_MB
+      ID="105"
+      NAME="Ground_gmb"
+      SYSTEM="Ground"
+      SURFACE_LIST="Ground_pln"
+   />
+   <GROUP_MB
+      ID="106"
+      NAME="Wheels_gmb"
+      SYSTEM="Car"
+      SURFACE_LIST="Wheel1_ell Wheel2_ell Wheel3_ell Wheel4_ell"
+   />
+   <CONTACT.MB_MB
+      ID="1"
+      NAME="Pedestrian_Hood_cnt"
+      MASTER_SURFACE="/2/Pelvis_gmb /2/AbdomenLateral_gmb /2/ThoraxLateral_gmb /2/Head_gmb /2/Shoulders_gmb /2/ArmUpL_gmb /2/ArmUpR_gmb /2/ArmLowL_gmb /2/ArmLowR_gmb /2/LegUpL_gmb /2/LegUpR_gmb"
+      SLAVE_SURFACE="Hood_gmb"
+      FRIC_COEF="0.2"
+      INITIAL_TYPE="CORRECT"
+      >
+      <CONTACT_FORCE.CHAR
+         CONTACT_TYPE="COMBINED"
+      />
+   </CONTACT.MB_MB>
+   <CONTACT.MB_MB
+      ID="6"
+      NAME="Pedestrian_Windscreen_cnt"
+      MASTER_SURFACE="/2/Shoulders_gmb /2/ArmUpL_gmb /2/ArmUpR_gmb /2/ArmLowL_gmb /2/ArmLowR_gmb /2/Head_gmb"
+      SLAVE_SURFACE="Windscreen_gmb"
+      FRIC_COEF="0.2"
+      INITIAL_TYPE="CORRECT"
+      >
+      <CONTACT_FORCE.CHAR
+         CONTACT_TYPE="COMBINED"
+      />
+   </CONTACT.MB_MB>
+   <CONTACT.MB_MB
+      ID="16"
+      NAME="Pedestrian_HoodEdge_cnt"
+      MASTER_SURFACE="/2/ArmLowL_gmb /2/ArmLowR_gmb /2/LegUpL_gmb /2/LegUpR_gmb /2/LegLowL_gmb /2/LegLowR_gmb"
+      SLAVE_SURFACE="HoodEdge_gmb"
+      FRIC_COEF="0.2"
+      INITIAL_TYPE="CORRECT"
+      >
+      <CONTACT_FORCE.CHAR
+         CONTACT_TYPE="COMBINED"
+      />
+   </CONTACT.MB_MB>
+   <CONTACT.MB_MB
+      ID="27"
+      NAME="Pedestrian_Bumper_cnt"
+      MASTER_SURFACE="/2/LegUpL_gmb /2/LegUpR_gmb /2/LegLowL_gmb /2/LegLowR_gmb"
+      SLAVE_SURFACE="Bumper_gmb"
+      FRIC_COEF="0.2"
+      INITIAL_TYPE="CORRECT"
+      >
+      <CONTACT_FORCE.CHAR
+         CONTACT_TYPE="COMBINED"
+      />
+   </CONTACT.MB_MB>
+   <CONTACT.MB_MB
+      ID="37"
+      NAME="Ground_Pedestrian_cnt"
+      MASTER_SURFACE="Ground_gmb"
+      SLAVE_SURFACE="/2/Pelvis_gmb /2/ThoraxLateral_gmb /2/Head_gmb /2/Shoulders_gmb /2/ArmLowL_gmb /2/ArmLowR_gmb /2/LegUpL_gmb /2/LegUpR_gmb /2/ShoeL_gmb /2/ShoeR_gmb"
+      FRIC_COEF="0.67"
+      INITIAL_TYPE="CORRECT"
+      BOUNDARY_WIDTH="INF"
+      >
+      <CONTACT_FORCE.CHAR
+         CONTACT_TYPE="SLAVE"
+      />
+   </CONTACT.MB_MB>
+   <CONTACT.MB_MB
+      ID="54"
+      NAME="Ground_Wheels_cnt"
+      MASTER_SURFACE="Ground_gmb"
+      SLAVE_SURFACE="Wheels_gmb"
+      FRIC_COEF="0.8"
+      INITIAL_TYPE="CORRECT"
+      BOUNDARY_WIDTH="INF"
+      DAMP_COEF="3000.0"
+      >
+      <CONTACT_FORCE.CHAR
+         CONTACT_TYPE="SLAVE"
+      />
+   </CONTACT.MB_MB>
+   <FUNCTION.XY
+      ID="99"
+      NAME="fid_99"
+      >
+      <TABLE
+         TYPE="XY_PAIR"
+         >
+<![CDATA[
+|      XI             YI      |
+       0.00000000E+00 0.00000000E+00
+       5.00000000E+02 5.00000000E-01
+       1.00000000E+04 1.00000000E+00
+]]>
+      </TABLE>
+   </FUNCTION.XY>
+   <OUTPUT_BODY
+      ID="100"
+      SIGNAL_TYPE="LIN_VEL"
+      NAME="Car_lvl"
+      EXTENDED_SAMPLING="ON"
+      >
+      <CRDSYS_OBJECT_1.MB
+         BODY="/3/Car_bod"
+         POS="0.0 0.0 0.0"
+      />
+   </OUTPUT_BODY>
+   <OUTPUT_JOINT_CONSTRAINT
+      ID="101"
+      NAME="ImpactForceBumper_JointBumperCar"
+      JOINT="/3/2"
+      SIGNAL_TYPE="FORCE"
+      FILTER="CFC180"
+      EXTENDED_SAMPLING="ON"
+   />
+</MADYMO>

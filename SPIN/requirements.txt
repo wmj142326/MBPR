@@ -1,0 +1,10 @@
+neural-renderer-pytorch
+neural-renderer
+mkl-fft
+mkl-random
+mkl-service
+
+
+# torch==1.1.0
+# torchgeometry
+# torchvision
