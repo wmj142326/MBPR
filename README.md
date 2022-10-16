@@ -4,13 +4,13 @@
 
 # 1.Shoulders Of Giants：
 
-[SMPL](https://smpl.is.tue.mpg.de/)：一种参数化人体模型
+[1] [SMPL](https://smpl.is.tue.mpg.de/)：一种参数化人体模型
 
-[SPIN](https://www.seas.upenn.edu/~nkolot/projects/spin/)：三维人体重建方法
+[2] [SPIN](https://www.seas.upenn.edu/~nkolot/projects/spin/)：三维人体重建方法
 
-[human_model_viewer](https://github.com/Lemon-XQ/human_model_viewer)：SMPL参数的调整可视化 
+[3] [human_model_viewer](https://github.com/Lemon-XQ/human_model_viewer)：SMPL参数的调整可视化 
 
-[SMPL_Tools](https://github.com/wmj142326/SMPL_Tools)：这是在[human_model_viewer](https://github.com/Lemon-XQ/human_model_viewer)的基础上，我们开发的一款针对[SMPL](https://smpl.is.tue.mpg.de/)的标注工具
+[4] [SMPL_Tools](https://github.com/wmj142326/SMPL_Tools)：这是在[human_model_viewer](https://github.com/Lemon-XQ/human_model_viewer)的基础上，我们开发的一款针对[SMPL](https://smpl.is.tue.mpg.de/)的标注工具
 
 # 2.Pipline
 
