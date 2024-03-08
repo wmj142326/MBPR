@@ -1,55 +1,58 @@
 # MBPR: Multi_Body_Pose_Reconstruction
+English | [简体中文](README_CN.md)
 
 **Paper**：Real-time simulation reconstruction of pedestrian emergency posture in collision accident from monocular images
 
 # 1.Shoulders Of Giants：
 
-[1] [SMPL](https://smpl.is.tue.mpg.de/)：一种参数化人体模型
+[1] [SMPL](https://smpl.is.tue.mpg.de/)：A parameterized human body model
 
-[2] [SPIN](https://www.seas.upenn.edu/~nkolot/projects/spin/)：三维人体重建方法
+[2] [SPIN](https://www.seas.upenn.edu/~nkolot/projects/spin/)：3D human reconstruction method
 
-[3] [human_model_viewer](https://github.com/Lemon-XQ/human_model_viewer)：SMPL参数的调整可视化 
+[3] [human_model_viewer](https://github.com/Lemon-XQ/human_model_viewer)：Visual adjustment of SMPL parameters 
 
-[4] [SMPL_Tools](https://github.com/wmj142326/SMPL_Tools)：这是在[human_model_viewer](https://github.com/Lemon-XQ/human_model_viewer)的基础上，我们开发的一款针对[SMPL](https://smpl.is.tue.mpg.de/)的标注工具
+[4] [SMPL_Tools](https://github.com/wmj142326/SMPL_Tools)：This is based on [human_model_viewer](https://github.com/Lemon-XQ/human_model_viewer), we developed a target [SMPL](https://smpl.is.tue.mpg.de/)annotation tool
 
 # 2.Pipline
 
-<img src="README.assets/image-20221015224211967.png" alt="image-20221015224211967" style="zoom: 40%;" />
+<img src="README.assets/Fig1.png" style="zoom: 40%;" />
 
 # 3.Tutorial
 
-0. 下载：`git clone https://github.com/wmj142326/MBPR-Multi_Body_Pose_Reconstruction.git `
+0. Download：`git clone https://github.com/wmj142326/MBPR-Multi_Body_Pose_Reconstruction.git `
 
-1. 按照[SPIN/README.md](https://github.com/wmj142326/MBPR/tree/master/SPIN#readme)中的教程配置环境；
+1. Environment configuration:[SPIN/README.md](https://github.com/wmj142326/MBPR/tree/master/SPIN#readme)
 
-2. 运行`estimation.py`, 在
+2. Run`estimation.py`
 
    ```python
    python estimation.py --checkpoint=data/model_checkpoint.pt --img_file=input_img/01 --outfile=out/01
    ```
    
-   > input_img/01是一个存放输入图片的文件夹
-   > out/01是一个存放输出结果的文件夹，包括：pic_outfile, pic_outfile_shape, pkl_outfile
+   > `input_img/01` is a folder to store input images
+   > 
+   > `out/01` is a folder to store the output results，include：pic_outfile, pic_outfile_shape, pkl_outfile
 
-3. 复制文件：
+3. copy folders：
 
    madymo/images == input_img/01;
 
    madymo/pkl_file == out/pkl_outfile;
 
-4. 运行`ped_pkl2xml.py`：
+
+4. Run `ped_pkl2xml.py`：
 
    ```python
    python ped_pkl2xml.py
    ```
 
-5. 输出结果保存在文件夹：`madymo/xml_file/`
+5. The output is saved in a folder：`madymo/xml_file/`
 
-6. 可视化：将`madymo/xml_file/*.xml`导入MADYMO软件查看。
+6.  Visualization：Import `madymo/xml_file/*.xml`into MADYMO software for viewing.
 
 # 4.Appendix
 
-在madymo/mesh/文件夹中，我们提供了SMPL的.obj结果,可通过[SMPL_Tools](https://github.com/wmj142326/SMPL_Tools)中的方法获得，需要将`.pkl`文件转换为`.ini`文件：
+In `madymo/mesh/` folder，we provided the SMPL `.obj` results, Visualization by [SMPL_Tools](https://github.com/wmj142326/SMPL_Tools)， need`.pkl` to `.ini`：
    ```python
 python ped_pkl2ini.py
    ```
