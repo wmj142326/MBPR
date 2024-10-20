@@ -19,7 +19,7 @@
 
 # 3.Tutorial
 
-0. 下载：`git clone https://github.com/wmj142326/MBPR-Multi_Body_Pose_Reconstruction.git `
+0. 下载：`git clone https://github.com/wmj142326/MBPR`
 
 1. 按照[SPIN/README.md](https://github.com/wmj142326/MBPR/tree/master/SPIN#readme)中的教程配置环境；
 
@@ -54,3 +54,4 @@
    ```python
 python ped_pkl2ini.py
    ```
+🎉 我们的工作已经被IEEE TITS录用啦!

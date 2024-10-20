@@ -19,7 +19,7 @@ English | [简体中文](README_CN.md)
 
 # 3.Tutorial
 
-0. Download：`git clone https://github.com/wmj142326/MBPR-Multi_Body_Pose_Reconstruction.git `
+0. Download：`git clone https://github.com/wmj142326/MBPR`
 
 1. Environment configuration:[SPIN/README.md](https://github.com/wmj142326/MBPR/tree/master/SPIN#readme)
 
@@ -56,3 +56,4 @@ In `madymo/mesh/` folder，we provided the SMPL `.obj` results, Visualization by
    ```python
 python ped_pkl2ini.py
    ```
+🎉 Our paper has been accepted by IEEE TITS!
