@@ -1,9 +1,7 @@
 # MBPR: Multi_Body_Pose_Reconstruction
 English | [简体中文](README_CN.md)
 
-**Paper**：
-
-《Real-Time Reconstruction of Multi-Body Pedestrian Pre-Impact Posture in Collision Accidents From Monocular Images》
+**Paper**：《Real-Time Reconstruction of Multi-Body Pedestrian Pre-Impact Posture in Collision Accidents From Monocular Images》
 
 # 1.Shoulders Of Giants：
 
