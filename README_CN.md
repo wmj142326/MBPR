@@ -3,7 +3,7 @@
 
 **Paper**：Real-time simulation reconstruction of pedestrian emergency posture in collision accident from monocular images
 
-# 1.Shoulders Of Giants：
+# 1. Shoulders Of Giants：
 
 [1] [SMPL](https://smpl.is.tue.mpg.de/)：一种参数化人体模型
 
@@ -13,11 +13,11 @@
 
 [4] [SMPL_Tools](https://github.com/wmj142326/SMPL_Tools)：这是在[human_model_viewer](https://github.com/Lemon-XQ/human_model_viewer)的基础上，我们开发的一款针对[SMPL](https://smpl.is.tue.mpg.de/)的标注工具
 
-# 2.Pipline
+# 2. Pipline
 
 <img src="README.assets/Fig1.png"  style="zoom: 40%;" />
 
-# 3.Tutorial
+# 3. Tutorial
 
 0. 下载：`git clone https://github.com/wmj142326/MBPR`
 
@@ -48,10 +48,22 @@
 
 6. 可视化：将`madymo/xml_file/*.xml`导入MADYMO软件查看。
 
-# 4.Appendix
+# 4. Appendix
 
 在madymo/mesh/文件夹中，我们提供了SMPL的.obj结果,可通过[SMPL_Tools](https://github.com/wmj142326/SMPL_Tools)中的方法获得，需要将`.pkl`文件转换为`.ini`文件：
    ```python
 python ped_pkl2ini.py
    ```
-🎉 我们的工作已经被IEEE TITS录用啦!
+# 5. Citation
+   ```python
+@ARTICLE{10746249,
+  author={Wang, MeiJun and Meng, Yu and Xu, Yan and Li, Quan and Nie, Bingbing},
+  journal={IEEE Transactions on Intelligent Transportation Systems}, 
+  title={Real-Time Reconstruction of Multi-Body Pedestrian Pre-Impact Posture in Collision Accidents From Monocular Images}, 
+  year={2024},
+  volume={},
+  number={},
+  pages={1-15},
+  keywords={Pedestrians;Accidents;Injuries;Image reconstruction;Videos;Three-dimensional displays;Pose estimation;Computational modeling;Shape;Real-time systems;Pre-impact posture;pose reconstruction;multi-body pedestrian model;SMPL model;reconstruction of pedestrian-vehicle collision},
+  doi={10.1109/TITS.2024.3486214}}
+   ```

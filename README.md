@@ -56,4 +56,16 @@ In `madymo/mesh/` folder，we provided the SMPL `.obj` results, Visualization by
    ```python
 python ped_pkl2ini.py
    ```
-🎉 Our paper has been accepted by IEEE TITS!
+# 5. Citation
+   ```python
+@ARTICLE{10746249,
+  author={Wang, MeiJun and Meng, Yu and Xu, Yan and Li, Quan and Nie, Bingbing},
+  journal={IEEE Transactions on Intelligent Transportation Systems}, 
+  title={Real-Time Reconstruction of Multi-Body Pedestrian Pre-Impact Posture in Collision Accidents From Monocular Images}, 
+  year={2024},
+  volume={},
+  number={},
+  pages={1-15},
+  keywords={Pedestrians;Accidents;Injuries;Image reconstruction;Videos;Three-dimensional displays;Pose estimation;Computational modeling;Shape;Real-time systems;Pre-impact posture;pose reconstruction;multi-body pedestrian model;SMPL model;reconstruction of pedestrian-vehicle collision},
+  doi={10.1109/TITS.2024.3486214}}
+   ```
