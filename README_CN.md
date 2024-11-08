@@ -55,7 +55,7 @@
 python ped_pkl2ini.py
    ```
 # 5. Citation
-   ```python
+   ```
 @ARTICLE{10746249,
   author={Wang, MeiJun and Meng, Yu and Xu, Yan and Li, Quan and Nie, Bingbing},
   journal={IEEE Transactions on Intelligent Transportation Systems}, 
@@ -64,6 +64,5 @@ python ped_pkl2ini.py
   volume={},
   number={},
   pages={1-15},
-  keywords={Pedestrians;Accidents;Injuries;Image reconstruction;Videos;Three-dimensional displays;Pose estimation;Computational modeling;Shape;Real-time systems;Pre-impact posture;pose reconstruction;multi-body pedestrian model;SMPL model;reconstruction of pedestrian-vehicle collision},
   doi={10.1109/TITS.2024.3486214}}
    ```
