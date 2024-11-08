@@ -1,8 +1,9 @@
 # MBPR: Multi_Body_Pose_Reconstruction
 [English](README.md) | 简体中文
 
-**Paper**：Real-time simulation reconstruction of pedestrian emergency posture in collision accident from monocular images
+**Paper**：
 
+《Real-Time Reconstruction of Multi-Body Pedestrian Pre-Impact Posture in Collision Accidents From Monocular Images》
 # 1. Shoulders Of Giants：
 
 [1] [SMPL](https://smpl.is.tue.mpg.de/)：一种参数化人体模型
