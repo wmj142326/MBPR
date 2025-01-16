@@ -62,9 +62,10 @@ python ped_pkl2ini.py
   author={Wang, MeiJun and Meng, Yu and Xu, Yan and Li, Quan and Nie, Bingbing},
   journal={IEEE Transactions on Intelligent Transportation Systems}, 
   title={Real-Time Reconstruction of Multi-Body Pedestrian Pre-Impact Posture in Collision Accidents From Monocular Images}, 
-  year={2024},
-  volume={},
-  number={},
-  pages={1-15},
+  year={2025},
+  volume={26},
+  number={1},
+  pages={457-471},
+  keywords={Pedestrians;Accidents;Injuries;Image reconstruction;Videos;Three-dimensional displays;Pose estimation;Computational modeling;Shape;Real-time systems;Pre-impact posture;pose reconstruction;multi-body pedestrian model;SMPL model;reconstruction of pedestrian-vehicle collision},
   doi={10.1109/TITS.2024.3486214}}
    ```
