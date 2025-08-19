@@ -1,7 +1,7 @@
 # -*- coding = utf-8 -*-
 # @time:2021/3/9 10:19
 # Author:wmj
-# @File:pkl2ini.py
+# @File:ped_pkl2ini.py
 # @Software:PyCharm
 # @Function:pkl_to_ini转换
 
